@@ -31,7 +31,13 @@ require 'rubygems/version'
 require 'rubygems/dependency'
 require 'rubygems/spec_fetcher'
 require 'rubygems/platform'
-require 'rubygems/format'
+
+begin
+  require 'rubygems/format'
+rescue LoadError
+  require 'rubygems/package'
+end
+
 require 'rubygems/dependency_installer'
 require 'rubygems/uninstaller'
 require 'rubygems/specification'
